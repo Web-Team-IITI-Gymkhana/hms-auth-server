@@ -13,11 +13,12 @@ class Settings(BaseSettings):
 
     LICENSE_NAME: str = "GNU GPL"
 
-    PGUSER: str
-    PGPASSWORD: str
-    PGHOST: str
-    PGDATABASE: str
-    PGPORT: int
+    # PGUSER: str
+    # PGPASSWORD: str
+    # PGHOST: str
+    # PGDATABASE: str
+    # PGPORT: int
+    DATABASE_URL: str
 
     PRIVATE_KEY: str
     PUBLIC_KEY: str
@@ -30,8 +31,8 @@ class Settings(BaseSettings):
         env_file = ".env"
         env_file_encoding = "UTF-8"
 
-    def get_connection_string(self) -> PostgresDsn:
-        return f"postgresql://{self.PGUSER}:{self.PGPASSWORD}@{self.PGHOST}:{self.PGPORT}/{self.PGDATABASE}"
+    # def get_connection_string(self) -> PostgresDsn:
+        # return f"postgres://{self.PGUSER}:{self.PGPASSWORD}@{self.PGHOST}:{self.PGPORT}/{self.PGDATABASE}"
 
     def debug(self) -> bool:
         return self.ENVIRONMENT == "DEVELOPMENT"
