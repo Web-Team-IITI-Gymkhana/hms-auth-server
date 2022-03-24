@@ -53,7 +53,7 @@ async def login(user_id: UserCredentials, db: Session = Depends(get_db)):
     if not user:
         raise settings.invalid_credentials()
 
-    access_token = get_token(uuid=user.uuid)
+    access_token = get_token(uuid=user.uuid, role=user.role)
 
     return {
         "access_token": access_token,

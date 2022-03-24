@@ -32,12 +32,10 @@ def get_user(uuid: UUID4, db: Session):
         return User_Schema(**user.__dict__)
 
 
-def get_token(
-    uuid: UUID4,
-):
+def get_token(uuid: UUID4, role: str):
     token_expires_in = settings.ACCESS_TOKEN_EXPIRE_MINUTES
     token = create_token(
-        data={"sub": str(uuid), "typ": "access"},
+        data={"sub": str(uuid), "typ": "access", "role": role},
         expires_in=token_expires_in,
     )
     return token
