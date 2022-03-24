@@ -11,6 +11,12 @@ from users.processes import (
 router = APIRouter(prefix="/hospital", tags=["Hospitals"])
 
 
+@router.get("/")
+def get_all_hospitals(db: Session = Depends(get_db)):
+    data = db.query(Hospital).all()
+    return data
+
+
 @router.get("/details")
 async def user_details(token: str = Header(None), db: Session = Depends(get_db)):
     user = await get_current_user(token, db)
