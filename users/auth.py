@@ -58,6 +58,8 @@ async def login(user_id: UserCredentials, db: Session = Depends(get_db)):
     return {
         "access_token": access_token,
         "is_verified": user.is_verified,
+        "uuid": user.uuid,
+        "role": user.role,
         "token_type": "bearer",
     }
 
