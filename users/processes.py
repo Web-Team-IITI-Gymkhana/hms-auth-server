@@ -3,7 +3,7 @@ from pydantic import UUID4
 from server.config import settings
 
 from fastapi import Depends, FastAPI, HTTPException
-from jose import jwt
+import jwt
 from passlib.context import CryptContext
 from server.dependencies import get_db
 from sqlalchemy.orm import Session
