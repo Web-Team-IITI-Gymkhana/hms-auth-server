@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from server.config import settings
 
 debug = settings.debug()
-connection_string = settings.DATABASE_URI
+connection_string = settings.DATABASE_URL
 
 engine = create_engine(connection_string, echo=debug)
 
