@@ -16,7 +16,6 @@ class Doctor(Base):
     phone_number = Column(String(15), nullable=False)
     details_filled = Column(Boolean, nullable=False)
     is_approved = Column(Boolean, nullable=False, default=False)
-    # meta_data = Column(JSON)
 
     def __repr__(self):
         return self.name

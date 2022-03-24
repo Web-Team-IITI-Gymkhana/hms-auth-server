@@ -64,7 +64,7 @@ def create_token(data: dict, expires_in: int):
 def decode_token(token):
     return jwt.decode(
         token,
-        settings.PUBLIC_KEY,
+        settings.PRIVATE_KEY,
         algorithms=[settings.API_ALGORITHM],
         options={"require": ["exp", "iss", "sub", "iat"]},
     )

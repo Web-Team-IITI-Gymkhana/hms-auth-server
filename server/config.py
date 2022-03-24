@@ -21,7 +21,6 @@ class Settings(BaseSettings):
     DATABASE_URL: str
 
     PRIVATE_KEY: str
-    PUBLIC_KEY: str
     API_ALGORITHM: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int
 
