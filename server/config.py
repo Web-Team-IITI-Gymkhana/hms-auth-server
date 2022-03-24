@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     # PGHOST: str
     # PGDATABASE: str
     # PGPORT: int
-    DATABASE_URL: str
+    DATABASE_URI: str
 
     PRIVATE_KEY: str
     PUBLIC_KEY: str
