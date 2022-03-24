@@ -35,7 +35,7 @@ def get_user(uuid: UUID4, db: Session):
 def get_token(uuid: UUID4, role: str):
     token_expires_in = settings.ACCESS_TOKEN_EXPIRE_MINUTES
     token = create_token(
-        data={"sub": str(uuid), "typ": "access", "role": role},
+        data={"sub": str(uuid), "typ": "access"},
         expires_in=token_expires_in,
     )
     return token
