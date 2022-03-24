@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, Header
 from hospital.schemas import Hospital_Schema
 from server.dependencies import get_db
 from sqlalchemy.orm import Session
+from uuid import UUID
 
 from .models import Hospital
 from users.processes import (
@@ -14,6 +15,12 @@ router = APIRouter(prefix="/hospital", tags=["Hospitals"])
 @router.get("/")
 def get_all_hospitals(db: Session = Depends(get_db)):
     data = db.query(Hospital).all()
+    return data
+
+
+@router.get("/{uuid}")
+def retrieve_hospital(uuid: str, db: Session = Depends(get_db)):
+    data = db.query(Hospital).filter(Hospital.uuid == UUID(uuid)).first()
     return data
 
 
